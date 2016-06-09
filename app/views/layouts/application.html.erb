@@ -7,7 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<style>
+  body {
+    <% if !user_signed_in? %> 
+    background-image: none;
+    <% else %>
+    background-image: url("/images/default.png");
+    <% end -%>
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+</style>
 <%= yield %>
 
 </body>
