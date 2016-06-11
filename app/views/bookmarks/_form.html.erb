@@ -1,4 +1,5 @@
 <%= form_for(@bookmark) do |f| %>
+
   <% if @bookmark.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
@@ -12,14 +13,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title %>
+    <div>
+      <%= f.text_field :title %>
+    </div>
   </div>
+
   <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
+    <%= f.label :url %>
+    <div>
+      <%= f.text_field :url %>
+    </div>
   </div>
+  
+  <div class="field">
+    <%= f.label :tags %>
+    <div>
+      <%= f.select :tag_ids, @tags.map {|c| [c.title, c.id]}, {}, multiple: true %>
+    </div>
+  </div>
+  
   <div class="actions">
+  <%= link_to 'Cancel', bookmarks_path, class: 'button-back' %>
     <%= f.submit %>
   </div>
 <% end %>
