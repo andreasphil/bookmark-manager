@@ -1,0 +1,30 @@
+// Color scheme
+$color-light: #e4e4e4;
+$color-lighter: lighten($color-light, 5%);
+$color-lightest: #ffffff;
+$color-dark: #444444;
+$color-darker: #000000;
+
+// Custom variables
+$content-width: 800px;
+$content-background: fade-out($color-lightest, 0.1);
+$content-hover-background: fade-out($color-lightest, 0.2);
+
+// Bootstrap variables
+$body-bg: $color-lighter;
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-size-base: 13px;
+$font-size-h1: ceil(($font-size-base * 1.25));
+$link-color: $color-dark;
+$link-hover-color: $color-darker;
+$link-hover-decoration: none;
+$list-group-bg: $content-background;
+$list-group-hover-bg: $content-hover-background;
+$list-group-link-heading-color: $color-dark;
+$navbar-default-bg: $content-background;
+$navbar-default-border: none;
+$navbar-default-brand-color: $color-dark;
+$navbar-default-brand-hover-color: $color-darker;
+$navbar-default-link-color: $color-dark;
+$navbar-default-link-hover-color: $color-darker;
+$text-color: $color-dark;

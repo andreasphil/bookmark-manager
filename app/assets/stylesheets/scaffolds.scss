@@ -1,73 +1,112 @@
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+body
+{
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: ($navbar-height * 2) $navbar-height;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+.header
+{
+  @extend .navbar;
+  @extend .navbar-fixed-top;
+  @extend .navbar-default;
+
+  box-shadow: 0 0 30px 0 fade-out(#000000, 0.9);
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
+a
+{
+  transition: background-color 0.3s ease,
+              color 0.3s ease;
 }
 
-a {
-  color: #000;
+.container-fluid
+{
+  max-width: $content-width;
+}
 
-  &:visited {
-    color: #666;
+.content
+{
+  border-radius: $border-radius-base;
+  box-shadow: 0 0 30px 0 fade-out(#000000, 0.8);
+  overflow: hidden;
+}
+
+.content-default-wrapper
+{
+  @extend .content;
+  @include make-xs-column(12);  
+}
+
+.content-default
+{
+  background-color: $content-background;
+  border-radius: $border-radius-base;
+  padding: 30px;
+
+  h1
+  {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+}
+
+form
+{
+  .field
+  {
+    @extend .form-group;
+    @include make-row();
+
+    label
+    {
+      @include make-sm-column(3);
+    }
+
+    input[type=text]
+    {
+      @extend .form-control;
+    }
+
+    div
+    {
+      @include make-sm-column(9);
+    }
   }
 
-  &:hover {
-    color: #fff;
-    background-color: #000;
+  .actions
+  {
+    text-align: right;
+
+    input[type=submit]
+    {
+      @extend .btn;
+      @extend .btn-primary;
+    }
+
+    .button-back
+    {
+      @extend .btn;
+      @extend .btn-default;
+    }
   }
 }
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
+main.application
+{
+  @extend .container-fluid;
+  
+  padding: 0;
 }
 
-#notice {
-  color: green;
-}
+.toolbar
+{
+  @extend .navbar;
+  @extend .navbar-default;
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 1px;
 }
