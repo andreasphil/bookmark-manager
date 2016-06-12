@@ -1,14 +1,6 @@
-<p id="notice"><%= notice %></p>
+<main class="application">
 
-<p>
-  <strong>Title:</strong>
-  <%= @tag.title %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @tag.color %>
-</p>
-
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+  <%= render 'tags/taglist_sidebar' %>
+  <%= render 'bookmarks/bookmarklist' %>
+  
+</main>

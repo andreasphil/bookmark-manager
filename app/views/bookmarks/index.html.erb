@@ -1,64 +1,6 @@
 <main class="application">
 
-  <div class="tags-wrapper">
-    <div class="tags">
-      <div class="toolbar">
-        <ul class="nav navbar-nav">
-          <li><%= link_to 'Manage', tags_path %></li>
-        </ul>
-      </div>
-      <ul class="tag-list">
-        <% @tags.each do |tag| %>
-          <li><%= link_to tag.title, tag %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-  <div class="bookmarks-wrapper">
-    <div class="bookmarks">
-      <div class="toolbar">
-        <ul class="nav navbar-nav">
-          <li><%= link_to 'New Bookmark', new_bookmark_path %></li>
-        </ul>
-      </div>
-      
-      <ul class="bookmark-list">
-        <% @bookmarks.each do |bookmark| %>
-          <li>
-
-            <div class="bookmark-list-favicon">
-              <img src="<%= get_favicon_url bookmark.url %>">
-            </div>
-          
-            <div class="bookmark-list-content">
-              <%= link_to bookmark.url do %>
-                <h1> 
-                  <%= bookmark.title %>
-                </h1>
-                <p><%= bookmark.url %></p>
-              <% end %>
-              <% if !bookmark.tags.empty? %>
-                <div class="tag-list">
-                    <% bookmark.tags.each do |tag| %>
-                      <%= link_to tag do %>
-                        <span class="label label-default"><%= tag.title %></span>
-                      <% end %>
-                    <% end %>
-                </div>
-              <% end %>
-            </div>
-            <div class="bookmark-list-action">
-              <%= link_to 'Edit', edit_bookmark_path(bookmark) %>
-            </div>
-
-            <div class="bookmark-list-action">
-              <%= link_to 'Delete', bookmark, method: :delete %>
-            </div>
-            
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+  <%= render 'tags/taglist_sidebar' %>
+  <%= render 'bookmarks/bookmarklist' %>
+  
 </main>
