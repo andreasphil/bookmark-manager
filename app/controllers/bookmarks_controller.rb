@@ -8,11 +8,6 @@ class BookmarksController < ApplicationController
     @bookmarks = Bookmark.all
   end
 
-  # GET /bookmarks/1
-  # GET /bookmarks/1.json
-  def show
-  end
-
   # GET /bookmarks/new
   def new
     @bookmark = Bookmark.new
@@ -29,8 +24,8 @@ class BookmarksController < ApplicationController
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
-        format.json { render :show, status: :created, location: @bookmark }
+        format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully created.' }
+        format.json { render :index, status: :created, location: @bookmark }
       else
         format.html { render :new }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
@@ -43,8 +38,8 @@ class BookmarksController < ApplicationController
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
-        format.html { redirect_to @bookmark, notice: 'Bookmark was successfully updated.' }
-        format.json { render :show, status: :ok, location: @bookmark }
+        format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully updated.' }
+        format.json { render :index, status: :ok, location: @bookmark }
       else
         format.html { render :edit }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
