@@ -12,14 +12,34 @@ body
   @extend .navbar;
   @extend .navbar-fixed-top;
   @extend .navbar-default;
-
-  box-shadow: 0 0 30px 0 fade-out(#000000, 0.9);
 }
 
 a
 {
   transition: background-color 0.3s ease,
               color 0.3s ease;
+}
+
+#notice
+{
+  @extend .alert;
+  @extend .alert-info;
+
+  max-width: ($content-width - $grid-gutter-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#error_explanation
+{
+  @extend .alert;
+  @extend .alert-danger;
+
+  h2
+  {
+    margin-top: 0;
+    font-size: $font-size-large;
+  }
 }
 
 .container-fluid
@@ -30,18 +50,18 @@ a
 .content
 {
   border-radius: $border-radius-base;
-  box-shadow: 0 0 30px 0 fade-out(#000000, 0.8);
   overflow: hidden;
 }
 
 .content-default-wrapper
 {
-  @extend .content;
   @include make-xs-column(12);  
 }
 
 .content-default
 {
+  @extend .content;
+
   background-color: $content-background;
   border-radius: $border-radius-base;
   padding: 30px;
@@ -94,6 +114,14 @@ form
   }
 }
 
+table
+{
+  @extend .table;
+  @extend .table-hover;
+
+  width: 100%;
+}
+
 main.application
 {
   @extend .container-fluid;
@@ -109,4 +137,9 @@ main.application
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   margin-bottom: 1px;
+
+  .navbar-right
+  {
+    margin-right: 0;
+  }
 }
