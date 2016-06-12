@@ -8,6 +8,7 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles.json
   def index
     @user_profiles = UserProfile.all
+    puts "Test output"
   end
 
   # GET /user_profiles/1
@@ -68,17 +69,11 @@ class UserProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user_profile
       @user_profile = UserProfile.find(params[:id])
-      if !@user_profile
-        @user_profile = UserProfile.new
-        @user_profile.backgound_image = DEFAULT_BACKGROUND_IMAGE_PATH
-        @user_profile.user_id = current_user.id
-        @user_profile.save
-      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
-      params.require(:user_profile).permit(:backgound_image, :user_id)
+      params.require(:user_profile).permit(:background_image)
     end
 
 end
