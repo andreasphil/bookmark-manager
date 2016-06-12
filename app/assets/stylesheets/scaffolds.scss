@@ -90,6 +90,13 @@ form
       @extend .form-control;
     }
 
+    select
+    {
+      @extend .form-control;
+      
+      height: auto;
+    }
+
     div
     {
       @include make-sm-column(9);
@@ -117,7 +124,6 @@ form
 table
 {
   @extend .table;
-  @extend .table-hover;
 
   width: 100%;
 }

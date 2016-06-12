@@ -49,3 +49,13 @@ table.tag-table
     width: 1px;
   }
 }
+
+.label
+{
+  &.label-grey { @extend .label-default; }
+  &.label-blue { @extend .label-primary; }
+  &.label-sky { @extend .label-info; }
+  &.label-green { @extend .label-success; }
+  &.label-yellow { @extend .label-warning; }
+  &.label-red { @extend .label-danger; }
+}
