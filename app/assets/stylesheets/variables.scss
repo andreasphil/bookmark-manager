@@ -7,8 +7,8 @@ $color-darker: #000000;
 
 // Custom variables
 $content-width: 800px;
-$content-background: fade-out($color-lightest, 0.1);
-$content-hover-background: fade-out($color-lightest, 0.2);
+$content-background: fade-out($color-lightest, 0.5);
+$content-hover-background: fade-out($color-lightest, 0.3);
 
 // Bootstrap variables
 $body-bg: $color-lighter;
