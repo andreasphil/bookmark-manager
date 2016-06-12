@@ -41,3 +41,11 @@ ul.tag-list
     }
   }
 }
+
+table.tag-table
+{
+  td:last-child
+  {
+    width: 1px;
+  }
+}

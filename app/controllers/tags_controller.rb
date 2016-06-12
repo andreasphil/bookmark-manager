@@ -1,5 +1,7 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_bookmarks, only: [:show]
+  before_action :set_tags, only: [:show]
 
   # GET /tags
   # GET /tags.json
@@ -65,6 +67,14 @@ class TagsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tag
       @tag = Tag.find(params[:id])
+    end
+
+    def set_bookmarks
+      @bookmarks = Bookmark.joins(:tags).where('tags.id': params[:id])
+    end
+
+    def set_tags
+      @tags = Tag.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
