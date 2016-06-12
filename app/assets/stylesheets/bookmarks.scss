@@ -36,47 +36,47 @@
     {
       border-bottom-width: 0;
     }
+
+    .bookmark-favicon
+    {
+      display: table-cell;
+      width: 31px; // img width + list-group-item padding
+
+      img
+      {
+        height: 16px;
+        width: 16px;
+      }
+    }
+
+    .bookmark-content
+    {
+      display: table-cell;
+
+      h1
+      {
+        @extend .list-group-item-heading;
+        
+        font-size: $font-size-base;
+        font-weight: bold;
+      }
+
+      p
+      {
+        @extend .list-group-item-text;
+      }
+    }
+
+    .bookmark-tags
+    {
+      margin-top: 10px;
+    }
+
+    .bookmark-action
+    {
+      display: table-cell;
+      width: 1px;
+      padding: 0 0 0 10px;
+    }
   }
-}
-
-.bookmark-list-favicon
-{
-  display: table-cell;
-  width: 31px; // img width + list-group-item padding
-
-  img
-  {
-    height: 16px;
-    width: 16px;
-  }
-}
-
-.bookmark-list-content
-{
-  display: table-cell;
-
-  h1
-  {
-    @extend .list-group-item-heading;
-    
-    font-size: $font-size-base;
-    font-weight: bold;
-  }
-
-  p
-  {
-    @extend .list-group-item-text;
-  }
-
-  .tag-list
-  {
-    margin-top: 10px;
-  }
-}
-
-.bookmark-list-action
-{
-  display: table-cell;
-  width: 1px;
-  padding: 0 0 0 10px;
 }

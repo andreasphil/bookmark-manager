@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
-  before_action :set_tags, only: [:index, :edit, :update, :create, :new]
+  before_action :set_tags, only: [:index, :edit, :update, :new, :create]
 
   # GET /bookmarks
   # GET /bookmarks.json

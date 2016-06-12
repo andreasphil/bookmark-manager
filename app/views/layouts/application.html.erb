@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BookmarkManager</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Bookmark Manager</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<!-- Show messages (if any) -->
 <% if notice %>
   <div id="notice"><%= notice %></div>
 <% end %>
 
+<!-- Toolbar -->
 <nav class="header">
   <div class="container-fluid">
     <div class="navbar-header">
       <span class="navbar-brand" href="#">Bookmark Manager</span>
     </div>
     <div class="collapse navbar-collapse">
+
+      <!-- User menu -->
+      <!-- < % if user_signed_in? % > -->
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to '#' do %>
@@ -30,11 +35,12 @@
           <% end %>    
         </li>
       </ul>
+      <!-- < % end % > -->
     </div>
   </div>
 </nav>
 
-<main class="application">
+<main>
   <%= yield %>
 </main>
 

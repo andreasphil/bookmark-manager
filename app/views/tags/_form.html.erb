@@ -1,5 +1,6 @@
 <%= form_for(@tag) do |f| %>
 
+  <!-- Error messages -->
   <% if @tag.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
@@ -12,6 +13,7 @@
     </div>
   <% end %>
 
+  <!-- Title -->
   <div class="field">
     <%= f.label :title %>
     <div>
@@ -19,6 +21,7 @@
     </div>
   </div>
   
+  <!-- Color -->
   <div class="field">
     <%= f.label :color %>
     <div>
@@ -26,6 +29,7 @@
     </div>
   </div>
 
+  <!-- Buttons -->
   <div class="actions">
     <%= link_to 'Cancel', bookmarks_path, class: 'button-back' %>
     <%= f.submit %>

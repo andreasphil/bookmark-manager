@@ -1,5 +1,7 @@
 <div class="bookmarks-wrapper">
   <div class="bookmarks">
+
+    <!-- Toolbar -->
     <div class="toolbar">
       <%= link_to bookmarks_path, class: 'navbar-brand' do %>
         <% if @tag %>
@@ -17,15 +19,18 @@
       </ul>
     </div>
     
+    <!-- Bookmark list -->
     <ul class="bookmark-list">
       <% @bookmarks.each do |bookmark| %>
         <li>
 
-          <div class="bookmark-list-favicon">
+          <!-- Favicon -->
+          <div class="bookmark-favicon">
             <img src="<%= get_favicon_url bookmark.url %>">
           </div>
-        
-          <div class="bookmark-list-content">
+
+          <!-- Title and URL -->
+          <div class="bookmark-content">
             <%= link_to bookmark.url do %>
               <h1> 
                 <%= bookmark.title %>
@@ -33,7 +38,7 @@
               <p><%= bookmark.url %></p>
             <% end %>
             <% if !bookmark.tags.empty? %>
-              <div class="tag-list">
+              <div class="bookmark-tags">
                   <% bookmark.tags.each do |tag| %>
                     <%= link_to tag do %>
                       <span class="label label-<%= tag.color %>"><%= tag.title %></span>
@@ -43,13 +48,15 @@
             <% end %>
           </div>
 
-          <div class="bookmark-list-action">
+          <!-- Edit -->
+          <div class="bookmark-action">
             <%= link_to edit_bookmark_path(bookmark) do %>
               <span class="glyphicon glyphicon-edit"></span>
             <% end %>
           </div>
 
-          <div class="bookmark-list-action">
+          <!-- Delete -->
+          <div class="bookmark-action">
             <%= link_to bookmark, method: :delete, data: { confirm: 'Are you sure?' } do %>
               <span class="glyphicon glyphicon-trash"></span>
             <% end %>
