@@ -11,16 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612171242) do
+ActiveRecord::Schema.define(version: 20160612182239) do
 
   create_table "user_profiles", force: :cascade do |t|
     t.text     "background_image"
-    t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
-
-  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id"
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

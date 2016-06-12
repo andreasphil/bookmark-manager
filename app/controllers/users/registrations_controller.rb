@@ -70,11 +70,9 @@ after_action :set_user_profile, only: [:create]
   def set_user_profile
     @user_profile = UserProfile.new
     @user_profile.background_image = DEFAULT_BG_IMAGE
-    # @user_profile.save
-    puts "********************************\n\tUser Profile save\n********************************"
+   
     user = User.find_by(email: params[:user][:email])
-    # puts "\n\n" + params + "\n\n"
-    user.user_profile = @user_profile
+    user.user_profile.create(user_profile_params)
     user.save
   end
 end
