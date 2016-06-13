@@ -7,36 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<style>
-  body {
-    <% if !user_signed_in? %> 
-    background-image: none;
-    <% else %>
-    background-image: url("/images/default.png");
-    <% end -%>
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-  }
-</style>
+  <style>
+    body {
+      <% if !user_signed_in? %> 
+      background-image: none;
+      <% else %>
+      background-image: url("/images/default.png");
+      <% end -%>
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+  </style>
 
-<nav class="header">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Bookmark Manager</a>
+  <nav class="header">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Bookmark Manager</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %> 
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'Delete', user_registration_path, method: :delete %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <% if user_signed_in? %> 
-        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to 'Delete', user_registration_path, method: :delete %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
+  </nav>
 
-<%= yield %>
-
+  <main class="container">
+    <%= yield %>
+  </main>
 </body>
 </html>
