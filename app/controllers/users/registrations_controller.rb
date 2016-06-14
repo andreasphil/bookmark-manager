@@ -64,11 +64,13 @@ DEFAULT_BG_IMAGE = "/images/default.png"
   private
 
   def set_user_profile
-    @user_profile = UserProfile.new
-    @user_profile.background_image = DEFAULT_BG_IMAGE
-   
     user = User.find_by(email: params[:user][:email])
-    user.create_user_profile(:background_image => DEFAULT_BG_IMAGE)
-    user.save
+    if user
+      @user_profile = UserProfile.new
+      @user_profile.background_image = DEFAULT_BG_IMAGE
+      
+      user.create_user_profile(:background_image => DEFAULT_BG_IMAGE)
+      user.save
+    end
   end
 end
