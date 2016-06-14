@@ -63,10 +63,6 @@ DEFAULT_BG_IMAGE = "/images/default.png"
 
   private
 
-  def user_profile_params
-    params.require(:user_profile).permit(:backgound_image)
-  end
-
   def set_user_profile
     @user_profile = UserProfile.new
     @user_profile.background_image = DEFAULT_BG_IMAGE

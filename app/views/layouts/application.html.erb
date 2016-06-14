@@ -20,14 +20,15 @@
     }
   </style>
 
-  <nav class="header">
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Bookmark Manager</a>
+        <a class="navbar-brand" href="/">Bookmark Manager</a>
       </div>
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse navbar-right">
         <ul class="nav navbar-nav">
           <% if user_signed_in? %> 
+          <li><%= link_to 'Profil', user_profile_path(current_user.user_profile) %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
           <li><%= link_to 'Delete', user_registration_path, method: :delete %></li>
           <% end %>
@@ -35,6 +36,8 @@
       </div>
     </div>
   </nav>
+
+  <p id="notice"><%= notice %></p>
 
   <main class="container">
     <%= yield %>

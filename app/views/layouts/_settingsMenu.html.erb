@@ -6,13 +6,13 @@
     </div>
       <ul class="list-group">
       <li class="list-group-item">
-          <%= link_to 'Übersicht', user_profile_path %>
+          <%= link_to 'Übersicht', user_profile_path(current_user.user_profile) %>
         </li>
         <li class="list-group-item">
           <%= link_to 'Account', edit_user_registration_path %>
         </li>
         <li class="list-group-item">
-          <%= link_to 'Hintergrund', edit_user_profile_path %>
+          <%= link_to 'Hintergrund', edit_user_profile_path(current_user.user_profile) %>
         </li>
       </ul>
   </div>
