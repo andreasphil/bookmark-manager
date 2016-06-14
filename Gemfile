@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap framework gem
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# Bootstrap form helper
+gem 'bootstrap_form', '~> 2.3.0'
+
 # Authentication gem
 gem 'devise', '~> 4.1.1'
 
