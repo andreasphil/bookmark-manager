@@ -1,4 +1,6 @@
 <%= bootstrap_form_for(@user_profile) do |f| %>
+
+  <!-- Error messages -->
   <% if @user_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
@@ -11,7 +13,7 @@
     </div>
   <% end %>
 
-    <%= f.text_area :background_image %>
-    <%= f.primary "Save background" %>
+  <%= f.text_area :background_image %>
+  <%= f.submit "Save background" %>
 
 <% end %>

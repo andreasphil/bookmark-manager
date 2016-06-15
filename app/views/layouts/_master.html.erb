@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookmark Manager</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <% if user_signed_in? %> 
+  <style>
+    body 
+    {
+      // background-image: url("/images/default.png");
+    }
+  </style>
+  <% end %>
+
+</head>
+<body>
+
+  <!-- Show messages (if any) -->
+  <% if notice %>
+    <div id="notice"><%= notice %></div>
+  <% end %>
+
+  <!-- Show devise errors (if any) -->
+  <%= devise_error_messages! %>
+
+  <!-- Toolbar -->
+  <nav class="header">
+    <div class="container-fluid">
+      <%= link_to 'Bookmark Manager', bookmarks_path, class: 'navbar-brand' %>
+
+      <!-- User menu -->
+      <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to edit_user_registration_path do %>
+            <span class="glyphicon glyphicon-cog"></span>
+          <% end %>    
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <span class="glyphicon glyphicon-log-out"></span>
+          <% end %>    
+        </li>
+      </ul>
+      <% end %>
+    </div>
+  </nav>
+
+  <main>
+    <%= yield %>
+  </main>
+
+</body>
+</html>

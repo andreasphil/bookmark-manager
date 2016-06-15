@@ -1,2 +1,7 @@
-<%= render 'taglist' %>
-<%= render 'bookmarks/bookmarklist' %>
+<% content_for :sidebar do %>
+  <%= render 'taglist' %>
+<% end %>
+
+<% content_for :main do %>
+  <%= render 'bookmarks/bookmarklist' %>
+<% end %>

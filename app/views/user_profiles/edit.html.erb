@@ -1,2 +1,13 @@
-<%= render 'layouts/settingsMenu' %>
-<%= render 'form' %>
+<% content_for :sidebar do %>
+  <%= render 'layouts/settings_menu' %>
+<% end %>
+
+<% content_for :main do %>
+  <div class="toolbar">
+    <span class="navbar-brand">Background Image</span>
+  </div>
+
+  <div class="content-default">
+    <%= render 'form' %>  
+  </div>
+<% end %>

@@ -1,0 +1,7 @@
+<div class="toolbar">
+  <span class="navbar-brand">Settings</span>
+</div>
+<ul class="sidebar-list">
+  <li><%= link_to 'Account', edit_user_registration_path %></li>
+  <li><%= link_to 'Background Image', edit_user_profile_path(current_user.user_profile) %></li>
+</ul>

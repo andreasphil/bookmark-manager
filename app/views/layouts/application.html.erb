@@ -1,58 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Bookmark Manager</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-
-  <% if user_signed_in? %> 
-  <style>
-    body 
-    {
-      background-image: url("/images/default.png");
-    }
-  </style>
-  <% end %>
-
-</head>
-<body>
-
-  <!-- Show messages (if any) -->
-  <% if notice %>
-    <div id="notice"><%= notice %></div>
-  <% end %>
-
-  <!-- Toolbar -->
-  <nav class="header">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <span class="navbar-brand" href="#">Bookmark Manager</span>
-      </div>
-      <div class="collapse navbar-collapse">
-
-        <!-- User menu -->
-        <% if user_signed_in? %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to user_profile_path(current_user.user_profile) do %>
-              <span class="glyphicon glyphicon-cog"></span>
-            <% end %>    
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <span class="glyphicon glyphicon-log-out"></span>
-            <% end %>    
-          </li>
-        </ul>
-        <% end %>
-      </div>
+<%= render layout: 'layouts/master' do |f| %>
+  <div class="content-default-wrapper">
+    <div class="content-default">
+      <%= yield %>
     </div>
-  </nav>
-
-  <main>
-    <%= yield %>
-  </main>
-
-</body>
-</html>
+  </div>
+<% end %>

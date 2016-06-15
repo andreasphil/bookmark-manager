@@ -1,2 +1,22 @@
-<%= render 'layouts/settingsMenu' %>
-<%= render 'showUserSettings' %>
+<% content_for :sidebar do %>
+  <%= render 'layouts/settings_menu' %>
+<% end %>
+
+<% content_for :main do %>
+  <div class="toolbar">
+    <span class="navbar-brand">Summary</span>
+  </div>
+  
+  <div class="panel-heading">
+    <h4>Email Adresse:</h6>
+  </div>
+    <div class="panel-body">
+      <%= @user_profile.user.email %>
+    </div>
+    <div class="panel-heading">
+      <h4>Background image:</h4>
+    </div>
+    <div class="panel-body">
+      <%= @user_profile.background_image %>
+    </div>
+<% end %>

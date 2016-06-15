@@ -1,69 +1,64 @@
-<div class="bookmarks-wrapper">
-  <div class="bookmarks">
-
-    <!-- Toolbar -->
-    <div class="toolbar">
-      <%= link_to bookmarks_path, class: 'navbar-brand' do %>
-        <% if @tag %>
-          <span class="glyphicon glyphicon-menu-left"></span> <%= @tag.title %>
-        <% else %>
-          All Bookmarks
-        <% end %>
+<!-- Toolbar -->
+<div class="toolbar">
+  <%= link_to bookmarks_path, class: 'navbar-brand' do %>
+    <% if @tag %>
+      <span class="glyphicon glyphicon-menu-left"></span> <%= @tag.title %>
+    <% else %>
+      All Bookmarks
+    <% end %>
+  <% end %>
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+      <%= link_to new_bookmark_path do %>
+        <span class="glyphicon glyphicon-plus"></span>
       <% end %>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to new_bookmark_path do %>
-            <span class="glyphicon glyphicon-plus"></span>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Bookmark list -->
-    <ul class="bookmark-list">
-      <% @bookmarks.each do |bookmark| %>
-        <li>
-
-          <!-- Favicon -->
-          <div class="bookmark-favicon">
-            <img src="<%= get_favicon_url bookmark.url %>">
-          </div>
-
-          <!-- Title and URL -->
-          <div class="bookmark-content">
-            <%= link_to bookmark.url do %>
-              <h1> 
-                <%= bookmark.title %>
-              </h1>
-              <p><%= bookmark.url %></p>
-            <% end %>
-            <% if !bookmark.tags.empty? %>
-              <div class="bookmark-tags">
-                  <% bookmark.tags.each do |tag| %>
-                    <%= link_to tag do %>
-                      <span class="label label-<%= tag.color %>"><%= tag.title %></span>
-                    <% end %>
-                  <% end %>
-              </div>
-            <% end %>
-          </div>
-
-          <!-- Edit -->
-          <div class="bookmark-action">
-            <%= link_to edit_bookmark_path(bookmark) do %>
-              <span class="glyphicon glyphicon-edit"></span>
-            <% end %>
-          </div>
-
-          <!-- Delete -->
-          <div class="bookmark-action">
-            <%= link_to bookmark, method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <span class="glyphicon glyphicon-trash"></span>
-            <% end %>
-          </div>
-          
-        </li>
-      <% end %>
-    </ul>
-  </div>
+    </li>
+  </ul>
 </div>
+
+<!-- Bookmark list -->
+<ul class="bookmark-list">
+  <% @bookmarks.each do |bookmark| %>
+    <li>
+
+      <!-- Favicon -->
+      <div class="bookmark-favicon">
+        <img src="<%= get_favicon_url bookmark.url %>">
+      </div>
+
+      <!-- Title and URL -->
+      <div class="bookmark-content">
+        <%= link_to bookmark.url do %>
+          <h1> 
+            <%= bookmark.title %>
+          </h1>
+          <p><%= bookmark.url %></p>
+        <% end %>
+        <% if !bookmark.tags.empty? %>
+          <div class="bookmark-tags">
+              <% bookmark.tags.each do |tag| %>
+                <%= link_to tag do %>
+                  <span class="label label-<%= tag.color %>"><%= tag.title %></span>
+                <% end %>
+              <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Edit -->
+      <div class="bookmark-action">
+        <%= link_to edit_bookmark_path(bookmark) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+      </div>
+
+      <!-- Delete -->
+      <div class="bookmark-action">
+        <%= link_to bookmark, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+      </div>
+      
+    </li>
+  <% end %>
+</ul>

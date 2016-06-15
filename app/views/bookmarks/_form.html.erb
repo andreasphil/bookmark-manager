@@ -1,4 +1,4 @@
-<%= form_for(@bookmark) do |f| %>
+<%= bootstrap_form_for(@bookmark) do |f| %>
   
   <!-- Error messages -->
   <% if @bookmark.errors.any? %>
@@ -14,32 +14,14 @@
   <% end %>
 
   <!-- Title -->
-  <div class="field">
-    <%= f.label :title %>
-    <div>
-      <%= f.text_field :title %>
-    </div>
-  </div>
-
-  <!-- URL -->
-  <div class="field">
-    <%= f.label :url %>
-    <div>
-      <%= f.text_field :url %>
-    </div>
-  </div>
-  
-  <!-- Tags -->
-  <div class="field">
-    <%= f.label :tags %>
-    <div>
-      <%= f.select :tag_ids, @tags.map {|c| [c.title, c.id]}, {}, multiple: true %>
-    </div>
-  </div>
+  <%= f.text_field :title %>
+  <%= f.text_field :url %>
+  <%= f.select :tag_ids, @tags.map {|c| [c.title, c.id]}, {}, multiple: true %>
   
   <!-- Buttons -->
   <div class="actions">
-  <%= link_to 'Cancel', bookmarks_path, class: 'button-back' %>
+    <%= link_to 'Cancel', bookmarks_path, class: 'button-back' %>
     <%= f.submit %>
   </div>
+  
 <% end %>
