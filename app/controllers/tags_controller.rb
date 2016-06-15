@@ -1,7 +1,9 @@
 class TagsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
   before_action :set_bookmarks, only: [:show]
   before_action :set_tags, only: [:show]
+  layout 'two_columns', only: [:show]
 
   # GET /tags
   # GET /tags.json

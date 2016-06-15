@@ -1,6 +1,8 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
   before_action :set_tags, only: [:index, :edit, :update, :new, :create]
+  layout 'two_columns', only: [:index]
 
   # GET /bookmarks
   # GET /bookmarks.json

@@ -1,6 +1,7 @@
 class UserProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user_profile, only: [:show, :edit, :update, :destroy]
+  layout 'two_columns'
 
   DEFAULT_BACKGROUND_IMAGE_PATH = 'images/default.png'
 

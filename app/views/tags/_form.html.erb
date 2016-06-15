@@ -1,4 +1,4 @@
-<%= form_for(@tag) do |f| %>
+<%= bootstrap_form_for(@tag) do |f| %>
 
   <!-- Error messages -->
   <% if @tag.errors.any? %>
@@ -14,20 +14,10 @@
   <% end %>
 
   <!-- Title -->
-  <div class="field">
-    <%= f.label :title %>
-    <div>
-      <%= f.text_field :title %>
-    </div>
-  </div>
+  <%= f.text_field :title %>
   
   <!-- Color -->
-  <div class="field">
-    <%= f.label :color %>
-    <div>
-      <%= f.select :color, tag_colors %>
-    </div>
-  </div>
+  <%= f.select :color, tag_colors %>
 
   <!-- Buttons -->
   <div class="actions">

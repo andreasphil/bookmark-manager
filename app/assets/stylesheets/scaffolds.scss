@@ -51,6 +51,10 @@ table
   @extend .alert;
   @extend .alert-danger;
 
+  max-width: ($content-width - $grid-gutter-width);
+  margin-left: auto;
+  margin-right: auto;
+
   h2
   {
     margin-top: 0;
@@ -94,57 +98,81 @@ table
   }
 }
 
+.sidebar-wrapper
+{
+  @extend .hidden-xs;
+  @extend .hidden-sm;
+  @include make-sm-column(4);
+}
+
+.sidebar
+{
+  @extend .content;
+}
+
+.sidebar-list
+{
+  @extend .nav;
+  @extend .nav-pills;
+  @extend .nav-stacked;
+
+  li:first-child > a
+  {
+    border-radius: 0;
+  }
+
+  li + li
+  {
+    margin-top: 1px;
+  }
+
+  li > a
+  {
+    background-color: $content-background;
+    border-radius: 0;
+
+    &:hover
+    {
+      background-color: $content-hover-background;
+    }
+  }
+}
+
+.content-sidebar-wrapper
+{
+  @include make-sm-column(8);
+}
+
 
 /* =============================================================================================
  * Forms
  * ============================================================================================= */
 
-form
+form > .actions
 {
-  .field
+  text-align: right;
+}
+
+input[type=submit]
+{
+  @extend .btn;
+  @extend .btn-primary;
+
+  &.button-delete-account
   {
-    @extend .form-group;
-    @include make-row();
-
-    label
-    {
-      @include make-sm-column(3);
-    }
-
-    input[type=text]
-    {
-      @extend .form-control;
-    }
-
-    select
-    {
-      @extend .form-control;
-      
-      height: auto;
-    }
-
-    div
-    {
-      @include make-sm-column(9);
-    }
+    @extend .btn-danger;
   }
+}
 
-  .actions
-  {
-    text-align: right;
+.button-back
+{
+  @extend .btn;
+  @extend .btn-default;
+}
 
-    input[type=submit]
-    {
-      @extend .btn;
-      @extend .btn-primary;
-    }
-
-    .button-back
-    {
-      @extend .btn;
-      @extend .btn-default;
-    }
-  }
+.has-error
+{
+  @include form-control-validation($brand-danger, $brand-danger, #ffffff);
 }
 
 
