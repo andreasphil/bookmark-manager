@@ -40,4 +40,23 @@ ActiveRecord::Schema.define(version: 20160612191416) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+  create_table "bookmarks", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bookmarks_tags", id: false, force: :cascade do |t|
+    t.integer "bookmark_id", null: false
+    t.integer "tag_id",      null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "title"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

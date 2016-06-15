@@ -1,46 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BookmarkManager</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Bookmark Manager</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
+
+  <% if user_signed_in? %> 
   <style>
-    body {
-      <% if !user_signed_in? %> 
-      background-image: none;
-      <% else %>
+    body 
+    {
       background-image: url("/images/default.png");
-      <% end -%>
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
     }
   </style>
+  <% end %>
 
-  <nav class="navbar navbar-default">
+</head>
+<body>
+
+  <!-- Show messages (if any) -->
+  <% if notice %>
+    <div id="notice"><%= notice %></div>
+  <% end %>
+
+  <!-- Toolbar -->
+  <nav class="header">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">Bookmark Manager</a>
+        <span class="navbar-brand" href="#">Bookmark Manager</span>
       </div>
-      <div class="collapse navbar-collapse navbar-right">
-        <ul class="nav navbar-nav">
-          <% if user_signed_in? %> 
-          <li><%= link_to 'Profil', user_profile_path(current_user.user_profile) %></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to 'Delete', user_registration_path, method: :delete %></li>
-          <% end %>
+      <div class="collapse navbar-collapse">
+
+        <!-- User menu -->
+        <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to user_profile_path(current_user.user_profile) do %>
+              <span class="glyphicon glyphicon-cog"></span>
+            <% end %>    
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <span class="glyphicon glyphicon-log-out"></span>
+            <% end %>    
+          </li>
         </ul>
+        <% end %>
       </div>
     </div>
   </nav>
 
-  <p id="notice"><%= notice %></p>
-
-  <main class="container">
+  <main>
     <%= yield %>
   </main>
+
 </body>
 </html>

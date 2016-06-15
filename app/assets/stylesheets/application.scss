@@ -12,7 +12,18 @@
  *
  */
 
-@import "rails_bootstrap_forms";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic);
 
+// Custom SASS variables
+@import "variables";
+
+// Bootstrap - TODO: Import only the styles that are necessary
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "rails_bootstrap_forms";
+
+// Application styles
+@import "scaffolds";
+@import "welcome";
+@import "bookmarks";
+@import "tags";

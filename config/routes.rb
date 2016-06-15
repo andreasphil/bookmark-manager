@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
+
   resources :user_profiles
   devise_for :users, controllers: {
         registrations: 'users/registrations'
       }
+
+  resources :tags
+  resources :bookmarks, except: :show
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # TODO needed to be set anywhere by devise, change to appropiate root
-  root 'user_profiles#index'
+  root 'bookmarks#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

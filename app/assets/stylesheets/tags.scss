@@ -1,0 +1,61 @@
+// Place all the styles related to the Tags controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tags
+{
+  @extend .content;
+}
+
+.tags-wrapper
+{
+  @extend .hidden-xs;
+  @extend .hidden-sm;
+  @include make-sm-column(4);
+}
+
+.tag-list
+{
+  @extend .nav;
+  @extend .nav-pills;
+  @extend .nav-stacked;
+
+  li:first-child > a
+  {
+    border-radius: 0;
+  }
+
+  li + li
+  {
+    margin-top: 1px;
+  }
+
+  li > a
+  {
+    background-color: $content-background;
+    border-radius: 0;
+
+    &:hover
+    {
+      background-color: $content-hover-background;
+    }
+  }
+}
+
+.tag-table
+{
+  td:last-child
+  {
+    width: 1px;
+  }
+}
+
+.label
+{
+  &.label-grey { @extend .label-default; }
+  &.label-blue { @extend .label-primary; }
+  &.label-sky { @extend .label-info; }
+  &.label-green { @extend .label-success; }
+  &.label-yellow { @extend .label-warning; }
+  &.label-red { @extend .label-danger; }
+}
