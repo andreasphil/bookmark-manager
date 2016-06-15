@@ -4,8 +4,12 @@ class UserProfilesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @user_profile = user_profiles(:one)
-    sign_in users(:one)
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    fg_user = FactoryGirl.create(:user)
+    fg_user.confirm
+    sign_in fg_user
+
+    @user_profile = FactoryGirl.create(:user_profile, user_id: fg_user.id)
   end
 
   test "should create user_profile" do
