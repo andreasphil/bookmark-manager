@@ -11,5 +11,8 @@
   <% end %>
   
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  <%= f.primary "Sign up" %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

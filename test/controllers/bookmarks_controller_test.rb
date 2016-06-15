@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class BookmarksControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @bookmark = bookmarks(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
@@ -21,12 +24,7 @@ class BookmarksControllerTest < ActionController::TestCase
       post :create, bookmark: { title: @bookmark.title, url: @bookmark.url }
     end
 
-    assert_redirected_to bookmark_path(assigns(:bookmark))
-  end
-
-  test "should show bookmark" do
-    get :show, id: @bookmark
-    assert_response :success
+    assert_redirected_to bookmarks_path
   end
 
   test "should get edit" do
@@ -36,7 +34,7 @@ class BookmarksControllerTest < ActionController::TestCase
 
   test "should update bookmark" do
     patch :update, id: @bookmark, bookmark: { title: @bookmark.title, url: @bookmark.url }
-    assert_redirected_to bookmark_path(assigns(:bookmark))
+    assert_redirected_to bookmarks_path
   end
 
   test "should destroy bookmark" do

@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  backgound_image: MyText
-  user_id: 
+  background_image: /img/default.png
+  user_id: 1
 
 two:
-  backgound_image: MyText
-  user_id: 
+  background_image: /img/default.png
+  user_id: 2

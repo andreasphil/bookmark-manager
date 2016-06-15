@@ -1,0 +1,13 @@
+<%= render layout: 'layouts/master' do |f| %>
+  <div class="sidebar-wrapper">
+    <div class="sidebar">
+      <%= yield :sidebar %>
+    </div> 
+  </div>
+
+  <div class="content-sidebar-wrapper">
+    <div class="content">
+      <%= yield :main %>
+    </div>
+  </div>
+<% end %>

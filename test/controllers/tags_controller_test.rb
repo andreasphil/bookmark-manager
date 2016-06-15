@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class TagsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @tag = tags(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
