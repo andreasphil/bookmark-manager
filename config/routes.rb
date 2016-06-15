@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :user_profiles
+  resources :user_profiles, only: [:edit, :create, :update, :destroy]
   devise_for :users, controllers: {
         registrations: 'users/registrations'
       }

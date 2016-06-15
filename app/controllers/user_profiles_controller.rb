@@ -1,25 +1,7 @@
 class UserProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_profile, only: [:edit, :update, :destroy]
   layout 'two_columns'
-
-  DEFAULT_BACKGROUND_IMAGE_PATH = 'images/default.png'
-
-  # GET /user_profiles
-  # GET /user_profiles.json
-  def index
-    @user_profiles = UserProfile.all
-  end
-
-  # GET /user_profiles/1
-  # GET /user_profiles/1.json
-  def show
-  end
-
-  # GET /user_profiles/new
-  def new
-    @user_profile = UserProfile.new
-  end
 
   # GET /user_profiles/1/edit
   def edit
