@@ -1,14 +1,10 @@
-<div class="">
-  <div>
-    <h4>Change password or email-address</h4>
-  </div>
 <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <%= f.email_field :email, autofocus: true %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <%= f.password_field :password, autocomplete: "off", help: "leave blank if you don't want to change it" %>
@@ -16,21 +12,14 @@
   <%= f.password_field :current_password, autocomplete: "off", help: "we need your current password to confirm your changes" %>
 
   <div class="actions">
-    <%= f.primary "Update" %>
+    <%= f.submit "Update" %>
   </div>
 <% end %>
-</div>
 
-<div class="">
-  <div>
-  <h4>Cancel my account</h4>
-  </div>
+<hr/>
 
-  <div>
-    Once you delete your account all data is lost and cannot be restored!<br/>
-    Be careful
-  </div>
-  <div>
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
-  </div>
-</div>
+<h1>Cancel my account</h1>
+
+<p>Once you delete your account all data is lost and cannot be restored!</p>
+
+<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button-delete-account" %>
