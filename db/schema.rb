@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615085854) do
+ActiveRecord::Schema.define(version: 20160615092617) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.string   "title"
@@ -33,7 +33,10 @@ ActiveRecord::Schema.define(version: 20160615085854) do
     t.string   "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "tags", ["user_id"], name: "index_tags_on_user_id"
 
   create_table "user_profiles", force: :cascade do |t|
     t.text     "background_image"

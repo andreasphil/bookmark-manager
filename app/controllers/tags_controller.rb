@@ -1,12 +1,11 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
   before_action :set_bookmarks, only: [:show]
-  before_action :set_tags, only: [:show]
+  before_action :set_tags, only: [:show, :index]
 
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
   end
 
   # GET /tags/1
@@ -27,6 +26,7 @@ class TagsController < ApplicationController
   # POST /tags.json
   def create
     @tag = Tag.new(tag_params)
+    @tag.user_id = current_user.id
 
     respond_to do |format|
       if @tag.save
@@ -70,11 +70,12 @@ class TagsController < ApplicationController
     end
 
     def set_bookmarks
-      @bookmarks = Bookmark.joins(:tags).where('tags.id': params[:id])
+      @bookmarks = Bookmark.joins(:tags).where('bookmarks.user_id = :user_id AND tags.user_id = :user_id AND tags.id = :tag_id', 
+        { user_id: current_user.id, tag_id: params[:id] })
     end
 
     def set_tags
-      @tags = Tag.all
+      @tags = Tag.where('user_id = ?', current_user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
