@@ -22,13 +22,6 @@ class DeviseCustomMailer < Devise::Mailer
     super
   end
 
-  def unlock_instructions(record, token, opts={})
-    opts[:from] = @options[:from]
-    opts[:reply_to] = @options[:reply_to]
-    opts[:subject] = 'Bookmark Manager account confirmation'
-    super
-  end
-
   def password_change(record, opts={})
     opts[:from] = @options[:from]
     opts[:reply_to] = @options[:reply_to]
