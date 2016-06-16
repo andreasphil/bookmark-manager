@@ -1,5 +1,9 @@
-<p>Welcome <%= @email %>!</p>
+<h4>Welcome to your Bookmark Manager!</h4>
 
-<p>You can confirm your account email through the link below:</p>
+<p>To start using your account please click the following link:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>If this doesn't work please copy the following url and open it in your favorite webbrowser</p>
+
+<p><%= confirmation_url(@resource, confirmation_token: @token).to_s %></p>
