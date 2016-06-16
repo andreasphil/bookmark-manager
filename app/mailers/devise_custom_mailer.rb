@@ -15,11 +15,33 @@ class DeviseCustomMailer < Devise::Mailer
     super
   end
 
+  def reset_password_instructions(record, token, opts={})
+    opts[:from] = @options[:from]
+    opts[:reply_to] = @options[:reply_to]
+    opts[:subject] = 'Reset password'
+    super
+  end
+
+  def unlock_instructions(record, token, opts={})
+    opts[:from] = @options[:from]
+    opts[:reply_to] = @options[:reply_to]
+    opts[:subject] = 'Bookmark Manager account confirmation'
+    super
+  end
+
+  def password_change(record, opts={})
+    opts[:from] = @options[:from]
+    opts[:reply_to] = @options[:reply_to]
+    opts[:subject] = 'Your password has been changed'
+    super
+  end
+
+
   private
 
   def set_options
     @options = Hash.new
-    @options[:from] = 'no-reply@example.com'
+    @options[:from] = 'Bookmark Manager <no-reply@example.com>'
     @options[:reply_to] = 'no-reply@example.com'
   end
 end
