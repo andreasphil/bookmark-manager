@@ -1,12 +1,10 @@
 <h1>Forgot your password?</h1>
+<p>Enter your email address and we will send you password reset instructions</p>
 
 <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <%= f.email_field :email, autofocus: true %>
+  <%= f.submit "Send instructions" %>
 
-  <div class="actions">
-    <%= link_to 'Cancel', :back, class: 'button-back' %>
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
 <% end %>

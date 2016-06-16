@@ -19,9 +19,7 @@
   <%= f.select :tag_ids, @tags.map {|c| [c.title, c.id]}, {}, multiple: true %>
   
   <!-- Buttons -->
-  <div class="actions">
-    <%= link_to 'Cancel', bookmarks_path, class: 'button-back' %>
     <%= f.submit %>
-  </div>
+    <%= link_to 'Cancel', bookmarks_path, class: 'button-back' %>
   
 <% end %>
