@@ -58,5 +58,8 @@ group :development do
 
   # Opens sent mails 
   gem 'letter_opener', '~> 1.4', '>= 1.4.1'
+
+  # Inline style for html emails
+  gem 'roadie-rails', '~> 1.0'
 end
 

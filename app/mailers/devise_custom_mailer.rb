@@ -4,6 +4,7 @@
 class DeviseCustomMailer < Devise::Mailer
   helper :application
   include Devise::Controllers::UrlHelpers
+  include Roadie::Rails::Automatic
   default template_path: 'devise/mailer'
   before_action :set_options
 

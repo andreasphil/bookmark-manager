@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(236, 240, 241);
+  font-family: "Open Sans", sans-serif;
+  color: rgba(53, 74, 95, 0.9);
+  background: rgba(255,255,255,0.5);
+}
+
+table {
+  width: 400px;
+}
+
+th, td {
+  text-align: left;
+}
+
+th {
+  padding-bottom: 15px;
+  font-size: 16px;
+}
+
+td {
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+
+.button {
+  padding: 14px 25px;
+  display: inline-block;
+  box-sizing: border-box;
+  color: rgb(255,255,255);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  background: rgb(32, 99, 143);
+  border-color: rgb(25. 79. 114);
+  border-style: solid;
+  border-radius: 4px;
+
+}
