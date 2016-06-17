@@ -62,6 +62,10 @@ DEFAULT_BG_IMAGE = "/images/default.png"
   #   super(resource)
   # end
 
+  def after_update_path_for(user)
+    edit_user_registration_path
+  end
+
   private
 
   def set_user_profile

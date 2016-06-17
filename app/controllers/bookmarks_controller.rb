@@ -2,6 +2,7 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
   before_action :set_tags, only: [:index, :edit, :update, :new, :create]
+  before_action :store_location, only: [:new, :edit]
   layout 'two_columns', only: [:index]
 
   # GET /bookmarks
@@ -27,7 +28,7 @@ class BookmarksController < ApplicationController
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully created.' }
+        format.html { redirect_to stored_location, notice: 'Bookmark was successfully created.' }
         format.json { render :index, status: :created, location: @bookmark }
       else
         format.html { render :new }
@@ -41,7 +42,7 @@ class BookmarksController < ApplicationController
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
-        format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully updated.' }
+        format.html { redirect_to stored_location, notice: 'Bookmark was successfully updated.' }
         format.json { render :index, status: :ok, location: @bookmark }
       else
         format.html { render :edit }
@@ -55,7 +56,8 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark.destroy
     respond_to do |format|
-      format.html { redirect_to bookmarks_url, notice: 'Bookmark was successfully destroyed.' }
+      format.html { 
+        redirect_to :back, notice: 'Bookmark was successfully destroyed.' rescue redirect_to bookmarks_path }
       format.json { head :no_content }
     end
   end
@@ -68,6 +70,11 @@ class BookmarksController < ApplicationController
 
     def set_tags
       @tags = Tag.where('user_id = ?', current_user.id)
+    end
+
+    def stored_location
+      url = stored_location_for(:user)
+      url ||= bookmarks_path
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
