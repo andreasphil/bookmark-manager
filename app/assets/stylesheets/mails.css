@@ -7,10 +7,11 @@ body {
 
 table {
   width: 400px;
+  margin: auto;
 }
 
 th, td {
-  text-align: left;
+  text-align: center;
 }
 
 th {
@@ -35,5 +36,4 @@ td {
   border-color: rgb(25, 79, 114);
   border-style: solid;
   border-radius: 4px;
-
 }

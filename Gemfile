@@ -41,6 +41,9 @@ gem 'bootstrap_form', '~> 2.3.0'
 # Authentication gem
 gem 'devise', '~> 4.1.1'
 
+# Inline style for html emails
+gem 'roadie-rails', '~> 1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -59,7 +62,5 @@ group :development do
   # Opens sent mails 
   gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 
-  # Inline style for html emails
-  gem 'roadie-rails', '~> 1.0'
 end
 
