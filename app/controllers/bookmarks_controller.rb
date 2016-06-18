@@ -56,29 +56,29 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark.destroy
     respond_to do |format|
-      format.html { 
+      format.html {
         redirect_to :back, notice: 'Bookmark was successfully destroyed.' rescue redirect_to bookmarks_path }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bookmark
-      @bookmark = Bookmark.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bookmark
+    @bookmark = Bookmark.find(params[:id])
+  end
 
-    def set_tags
-      @tags = Tag.where('user_id = ?', current_user.id)
-    end
+  def set_tags
+    @tags = Tag.where('user_id = ?', current_user.id)
+  end
 
-    def stored_location
-      url = stored_location_for(:user)
-      url ||= bookmarks_path
-    end
+  def stored_location
+    url = stored_location_for(:user)
+    url ||= bookmarks_path
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def bookmark_params
-      params.require(:bookmark).permit(:title, :url, tag_ids: [])
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def bookmark_params
+    params.require(:bookmark).permit(:title, :url, tag_ids: [])
+  end
 end

@@ -25,7 +25,7 @@ module BookmarkManager
     config.active_record.raise_in_transactional_callbacks = true
 
     # Override error div tag behavior
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance|
       html_tag
     }
   end

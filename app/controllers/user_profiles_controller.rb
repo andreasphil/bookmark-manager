@@ -48,14 +48,14 @@ class UserProfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_profile
-      @user_profile = UserProfile.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_profile
+    @user_profile = UserProfile.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_profile_params
-      params.require(:user_profile).permit(:background_image, :user_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_profile_params
+    params.require(:user_profile).permit(:background_image, :user_id)
+  end
 
 end

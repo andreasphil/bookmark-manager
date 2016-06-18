@@ -67,27 +67,27 @@ class TagsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tag
-      @tag = Tag.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tag
+    @tag = Tag.find(params[:id])
+  end
 
-    def set_bookmarks
-      @bookmarks = Bookmark.joins(:tags).where('bookmarks.user_id = :user_id AND tags.user_id = :user_id AND tags.id = :tag_id', 
-        { user_id: current_user.id, tag_id: params[:id] })
-    end
+  def set_bookmarks
+    @bookmarks = Bookmark.joins(:tags).where('bookmarks.user_id = :user_id AND tags.user_id = :user_id AND tags.id = :tag_id', 
+      { user_id: current_user.id, tag_id: params[:id] })
+  end
 
-    def set_tags
-      @tags = Tag.where('user_id = ?', current_user.id)
-    end
+  def set_tags
+    @tags = Tag.where('user_id = ?', current_user.id)
+  end
 
-    def stored_location(default)
-      url = stored_location_for(:user)
-      url ||= default
-    end
+  def stored_location(default)
+    url = stored_location_for(:user)
+    url ||= default
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tag_params
-      params.require(:tag).permit(:title, :color)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def tag_params
+    params.require(:tag).permit(:title, :color)
+  end
 end
