@@ -5,6 +5,8 @@
   <%= devise_error_messages! %>
 
   <%= f.email_field :email, autofocus: true %>
-  <%= f.submit "Send instructions" %>
+  <div class="actions">
+    <%= f.submit "Send instructions" %>
+  </div>
 
 <% end %>

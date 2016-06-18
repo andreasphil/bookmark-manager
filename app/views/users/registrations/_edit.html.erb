@@ -10,7 +10,9 @@
   <%= f.password_field :password, autocomplete: "off", help: "leave blank if you don't want to change it" %>
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
   <%= f.password_field :current_password, autocomplete: "off", help: "we need your current password to confirm your changes" %>
-  <%= f.submit "Update" %>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
   
 <% end %>
 

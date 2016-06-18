@@ -6,6 +6,7 @@
   <%= devise_error_messages! %>
 
   <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  <%= f.submit "Resend instructions" %>
-  
+  <div class="actions">
+    <%= f.submit "Resend instructions" %>
+  </div>
 <% end %>
