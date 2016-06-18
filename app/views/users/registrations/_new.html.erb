@@ -11,8 +11,7 @@
   <% end %>
   
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <%= f.submit %>
+  <%= link_to "Resend confirmation mail", new_confirmation_path(resource_name), class: "btn btn-default" %>
   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

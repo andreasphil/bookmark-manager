@@ -41,9 +41,15 @@ gem 'bootstrap_form', '~> 2.3.0'
 # Authentication gem
 gem 'devise', '~> 4.1.1'
 
+# Inline style for html emails
+gem 'roadie-rails', '~> 1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Helper for creating users
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -52,5 +58,9 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Opens sent mails 
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
+
 end
 

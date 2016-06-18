@@ -1,5 +1,21 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<%= render layout: 'devise/mailer/master_mail' do |f| %>
+  <table>
+    <thead>
+      <th>Welcome to your Bookmark Manager!</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>To start using your account please click the following link:</td>
+      </tr>
+      <tr>
+        <td><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class: 'button' %></td>
+      </tr>
+      <tr>
+        <td>If this doesn't work please copy the following url and open it in your favorite webbrowser</td>
+      </tr>
+      <tr>
+        <td><%= confirmation_url(@resource, confirmation_token: @token).to_s %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

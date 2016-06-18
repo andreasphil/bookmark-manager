@@ -5,7 +5,10 @@ class BookmarksControllerTest < ActionController::TestCase
 
   setup do
     @bookmark = bookmarks(:one)
-    sign_in users(:one)
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    fg_user = FactoryGirl.create(:user)
+    fg_user.confirm
+    sign_in fg_user
   end
 
   test "should get index" do

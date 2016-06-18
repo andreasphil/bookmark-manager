@@ -4,8 +4,11 @@ class TagsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    @tag = tags(:one)
-    sign_in users(:one)
+    @tag = tags(:one)    
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    fg_user = FactoryGirl.create(:user)
+    fg_user.confirm
+    sign_in fg_user
   end
 
   test "should get index" do
