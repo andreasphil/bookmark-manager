@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -47,6 +47,14 @@ gem 'roadie-rails', '~> 1.0'
 # Validates urls
 gem 'validate_url', '~> 1.0.2'
 
+group :production do
+  # PostgreSQL
+  gem 'pg'
+
+  # herorku dependencies
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -65,5 +73,7 @@ group :development do
   # Opens sent mails 
   gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
