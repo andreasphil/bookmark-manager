@@ -44,6 +44,9 @@ gem 'devise', '~> 4.1.1'
 # Inline style for html emails
 gem 'roadie-rails', '~> 1.0'
 
+# Validates urls
+gem 'validate_url', '~> 1.0.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
