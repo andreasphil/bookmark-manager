@@ -27,9 +27,11 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def check_user_confirmation
-    user = User.find_by_email(params[:email])
-    unless user && user.confirmed?
-      redirect_to new_confirmation_path(:user)
+    unless params[:user][:email].empty?
+      user = User.find_by_email(params[:user][:email])
+      unless user && user.confirmed?
+        redirect_to new_confirmation_path(:user)
+      end
     end
   end
 end
