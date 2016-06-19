@@ -13,13 +13,13 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   # TODO Insert correct mail-adsress
-  config.mailer_sender = 'no-reply@bookmarks.app.heroku.com'
+  config.mailer_sender = 'no-reply@manage-my-bookmarks.herokuapp.com'
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'DeviseCustomMailer'
 
   # Configure the parent class responsible to send e-mails.
-  # config.parent_mailer = 'ActionMailer::Base'
+  config.parent_mailer = 'ActionMailer::Base'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and

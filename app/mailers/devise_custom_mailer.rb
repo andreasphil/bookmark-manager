@@ -35,7 +35,7 @@ class DeviseCustomMailer < Devise::Mailer
 
   def set_options
     @options = Hash.new
-    @options[:from] = 'Bookmark Manager <no-reply@example.com>'
-    @options[:reply_to] = 'no-reply@example.com'
+    @options[:from] = 'Bookmark Manager <no-reply@manage-my-bookmarks.herokuapp.com>'
+    @options[:reply_to] = 'Bookmark Manager <no-reply@manage-my-bookmarks.herokuapp.com>'
   end
 end
