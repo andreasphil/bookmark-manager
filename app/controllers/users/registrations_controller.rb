@@ -4,8 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   after_action :set_user_profile, only: [:create]
   layout 'two_columns', only: [:edit]
 
-  DEFAULT_BG_IMAGE = '/images/default.png'
-
   # GET /resource/sign_up
   # def new
   #   super
@@ -71,7 +69,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def set_user_profile
     user = User.find_by(email: params[:user][:email])
     if user
-      user.create_user_profile(:background_image => DEFAULT_BG_IMAGE)
+      user.create_user_profile
       user.save
     end
   end
