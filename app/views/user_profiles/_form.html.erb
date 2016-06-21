@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@user_profile) do |f| %>
+<%= bootstrap_form_for @user_profile, html: { multipart: true } do |f| %>
 
   <!-- Error messages -->
   <% if @user_profile.errors.any? %>
@@ -13,7 +13,8 @@
     </div>
   <% end %>
 
-  <%= f.text_area :background_image %>
+  <%= f.file_field :background_image %>
+  
   <div class="actions">
     <%= f.submit "Save background" %>
   </div>
