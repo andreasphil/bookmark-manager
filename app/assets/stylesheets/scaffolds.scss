@@ -175,6 +175,14 @@ input[type=submit]
   @include form-control-validation($brand-danger, $brand-danger, #ffffff);
 }
 
+.content-form
+{
+  @extend .content-default;
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 
 /* =============================================================================================
  * Navigations
