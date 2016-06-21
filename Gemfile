@@ -47,6 +47,11 @@ gem 'roadie-rails', '~> 1.0'
 # Validates urls
 gem 'validate_url', '~> 1.0.2'
 
+# File upload to AWS
+gem 'carrierwave'
+gem 'fog'
+gem 'fog-aws'
+
 group :production do
   # PostgreSQL
   gem 'pg'
