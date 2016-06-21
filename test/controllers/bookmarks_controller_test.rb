@@ -9,6 +9,8 @@ class BookmarksControllerTest < ActionController::TestCase
     fg_user = FactoryGirl.create(:user)
     fg_user.confirm
     sign_in fg_user
+
+    @user_profile = FactoryGirl.create(:user_profile, user_id: fg_user.id)
   end
 
   test "should get index" do
