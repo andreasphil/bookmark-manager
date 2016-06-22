@@ -8,7 +8,12 @@ body
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: ($navbar-height * 2) $navbar-height;
+  padding: ($navbar-height * 1.7) 0;
+
+  @media (min-width: $screen-sm-min) {
+    padding-left: $navbar-height;  
+    padding-right: $navbar-height;  
+  }
 }
 
 a
@@ -41,9 +46,17 @@ table
   @extend .alert;
   @extend .alert-info;
 
+  border-radius: 0;
+  border-width: 1px 0;
   max-width: ($content-width - $grid-gutter-width);
   margin-left: auto;
   margin-right: auto;
+
+  @media (min-width: $screen-sm-min)
+  {
+    border-radius: $border-radius-base;
+    border-width: 1px;
+  }
 }
 
 #error_explanation
@@ -80,7 +93,14 @@ table
 
 .content-default-wrapper
 {
-  @include make-xs-column(12);  
+  @include make-xs-column(12);
+
+  float: none;
+
+  @media (min-width: $screen-sm-min)
+  {
+    float: left;
+  }
 }
 
 .content-default
@@ -100,9 +120,9 @@ table
 
 .sidebar-wrapper
 {
-  @extend .hidden-xs;
-  @extend .hidden-sm;
   @include make-sm-column(4);
+
+  margin-bottom: 30px;
 }
 
 .sidebar
@@ -150,13 +170,25 @@ table
 
 form > .actions
 {
-  text-align: right;
+  text-align: center;
+
+  @media(min-width: $screen-sm-min)
+  {
+    text-align: right;
+  }
+
+  .btn
+  {
+    margin-bottom: 5px;
+  }
 }
 
 input[type=submit]
 {
   @extend .btn;
   @extend .btn-primary;
+
+  margin-bottom: 5px;
 
   &.button-delete-account
   {
@@ -168,6 +200,8 @@ input[type=submit]
 {
   @extend .btn;
   @extend .btn-default;
+
+  margin-bottom: 5px;
 }
 
 .has-error
@@ -201,6 +235,14 @@ input[type=submit]
   {
     margin-right: 0;
   }
+
+  .nav
+  {
+    li
+    {
+      display: inline-block;
+    }
+  }
 }
 
 .header
@@ -208,4 +250,23 @@ input[type=submit]
   @extend .navbar;
   @extend .navbar-fixed-top;
   @extend .navbar-default;
+
+  background-color: $color-lighter;
+
+  @media (min-width: $screen-sm-min)
+  {
+    background-color: $content-background;
+  }
+}
+
+.header-label 
+{
+  margin-left: 5px;
+  display: inline-block ;
+
+  @media (min-width: $screen-sm-min) 
+  {
+    display: none;
+    margin: 0;
+  }
 }
